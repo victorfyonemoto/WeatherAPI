@@ -97,7 +97,7 @@ body{
 #savedWeather{
     background: rgba(24,24,27,0.8);
     margin-top: 20px;
-    padding: 130px 100px;
+    padding: 130px 100px 110px;
     overflow-x: scroll;
 }
 

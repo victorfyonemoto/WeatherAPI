@@ -5,10 +5,15 @@ const timeZone = document.getElementById('time_zone');
 const cityName = document.getElementById('cityName');
 const weatherForecastEl = document.getElementById('weather_forecast');
 const currentTempEl = document.getElementById('current_temp');
-const clearHistory = document.getElementById('clearbtn')
-const saveButton = document.getElementById('savebtn')
+const clearHistory = document.getElementById('clearbtn');
+const saveButton = document.getElementById('savebtn');
+let dataWeather = [];
+let savedDays = [];
+let weatherData;
 
-const daysWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+const dateOptions = { weekday: "long", year: 'numeric', month: 'long', day: 'numeric' };
+
+const daysWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 setInterval(() => {
@@ -20,9 +25,9 @@ setInterval(() => {
     const hour = time.getHours();
     const hours12hFormat = hour >= 13 ? hour %12: hour
     const minutes = time.getMinutes();
-    const ampm = hour >=12 ? 'PM' : 'AM'
+    const ampm = hour >=12 ? 'PM' : 'AM';
 
-    timeEl.innerHTML = (hours12hFormat < 10? '0'+hours12hFormat : hours12hFormat) + ':' + (minutes < 10? '0'+minutes: minutes)+ ' ' + `<span id="am_pm">${ampm}</span>`
+    timeEl.innerHTML = (hours12hFormat < 10? '0'+hours12hFormat : hours12hFormat) + ':' + (minutes < 10? '0'+minutes: minutes)+ ' ' + `<span id="am_pm">${ampm}</span>`;
 
     dateEl.innerHTML = daysWeek[day] + ', ' + date+ ' ' + months[month] + ' - ' + year
 
@@ -30,7 +35,7 @@ setInterval(() => {
 
 const API_KEY = '6a0b2e915b42d615de8e364b52eb20d0';
 
-function getWeatherData () {
+async function getWeatherData () {
 
     navigator.geolocation.getCurrentPosition((success) => {
         
@@ -42,8 +47,12 @@ function getWeatherData () {
          
          .then(data => {
 
-        console.log(data)
+        console.log(data);
         showWeatherData(data);
+        //localStorage
+        console.log(dataWeather);
+        dataWeather.push(data);
+        savedDays.push()
         })
 
     })
@@ -131,14 +140,38 @@ function showWeatherData (data){
 
 }
 
-/* 
+
 
 function saveHistory(){
 
+    
+    localStorage.setItem("weathers", JSON.stringify(weatherData));
+    
 }
 
-function clearHistory(){
+function renderHistory (){
+    
+    weatherData.forEach((weather) => {
+        document.getElementById('savedWeather').innerHTML = `
+        <div id ="history">
+        <img src = "http://openweathermap.org/img/wn/${weatherData[0].daily[0].weather[0].icon}@2x.png" alt =       " ">
+            Day ${weatherData[0].daily[0].temp.day}ºC
+            Night ${weatherDatar[0].daily[0].temp.night}ºC
+            ${weatherData[0].daily[0].weather[0].description}
+            </div>`
+            
+        })
+}
 
-} 
+/* 
+function clearHistory() {
 
-*/
+    if (dataWeather.length == 0) {
+      alert('Não há histórico a ser apagado')
+    } else {
+      localStorage.clear('dataWeather');
+      verifyLocalStorage();
+      alert(`O histórico foi apagado com sucesso`);
+    }
+
+} */

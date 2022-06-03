@@ -145,14 +145,16 @@ function showWeatherData (data){
 function saveHistory(){
 
     
-    localStorage.setItem("weathers", JSON.stringify(weatherData));
+    localStorage.setItem("weathers", JSON.stringify(dataWeather));
     
 }
+
+/* 
 
 function renderHistory (){
     
     weatherData.forEach((weather) => {
-        document.getElementById('savedWeather').innerHTML = `
+        document.getElementById('savedWeather').innerHTML += `
         <div id ="history">
         <img src = "http://openweathermap.org/img/wn/${weatherData[0].daily[0].weather[0].icon}@2x.png" alt =       " ">
             Day ${weatherData[0].daily[0].temp.day}ºC
@@ -163,7 +165,7 @@ function renderHistory (){
         })
 }
 
-/* 
+
 function clearHistory() {
 
     if (dataWeather.length == 0) {
@@ -173,5 +175,7 @@ function clearHistory() {
       verifyLocalStorage();
       alert(`O histórico foi apagado com sucesso`);
     }
+
+    renderHistory();
 
 } */

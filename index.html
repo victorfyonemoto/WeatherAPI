@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Victor Ferreira Yonemoto">
+    <meta name="description" content="Portfolio - Weather for your day ">
+    <link rel="stylesheet" href="style.css">
+    <title>Weather App</title>
+</head>
+<body>
+    <main id="container">
+        <section id="current_info">
+            <div id="date_container">
+                <div class="time" id="time">
+                    <span id="am_pm"></span>
+                </div>
+                <div class="date" id="date">
+                </div>
+                <div class="details" id="current_weather_info"> 
+                </div>
+            </div>
+            <div id="place_container">
+                <div class="time_zone" id="time_zone">
+                    Timezone
+                </div>
+                <div class="cityName" id="cityName">
+                    Location
+                </div>
+                <div id="save">
+                    <button class="info_manage" id="savebtn" onclick="saveHistory()"> Save </button>
+                    <button class="info_manage" id="clearbtn" onclick="clearHistory()"> Clear </button>
+                </div>
+                <div id="savedWeather">
+                    <div id="history"></div>
+                </div>
+            </div>
+        </section> 
+    </main>      
+    <section id="future_forecast">
+        <div class="today" id="current_temp">
+            <img src="http://openweathermap.org/img/wn/10d@4x.png" alt="Weather Icon for the day"id="w_icon">
+            <div id="current">
+                <div class="day"> Monday </div>
+                <div class="descriptionDay" id="description_current"></div>
+                <div class="temp">Day - 25 ºC</div>
+                <div class="temp">Night- 18 ºC</div>
+            </div>
+        </div>
+        <div class="weather_forecast" id="weather_forecast">
+            <div class="next_weather_forecast">
+                <div class="day"> Tuesday </div>
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="Weather Icon for the day" id="w_icon">
+                <div class="descriptionDay"></div>
+                <div class="temp">Day - 25 ºC</div>
+                <div class="temp">Night - 18 ºC</div>
+            </div>
+            <div class="next_weather_forecast">
+                <div class="day"> Wednesday </div>
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="Weather Icon for the day" id="w_icon">
+                <div class="descriptionDay"></div>
+                <div class="temp">Day - 25 ºC</div>
+                <div class="temp">Night - 18 ºC</div>
+            </div>
+            <div class="next_weather_forecast">
+                <div class="day"> Thursday </div>
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="Weather Icon for the day" id="w_icon">
+                <div class="descriptionDay"></div>
+                <div class="temp">Day - 25 ºC</div>
+                <div class="temp">Night - 18 ºC</div>
+            </div>
+            <div class="next_weather_forecast">
+                <div class="day"> Friday </div>
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="Weather Icon for the day" id="w_icon">
+                <div class="descriptionDay"></div>
+                <div class="temp">Day - 25 ºC</div>
+                <div class="temp">Night - 18 ºC</div>
+            </div>
+            <div class="next_weather_forecast">
+                <div class="day"> Saturday </div>
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="Weather Icon for the day" id="w_icon">
+                <div class="descriptionDay"></div>
+                <div class="temp">Day - 25 ºC</div>
+                <div class="temp">Night - 18 ºC</div>
+            </div>
+            <div class="next_weather_forecast">
+                <div class="day"> Sunday </div>
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="Weather Icon for the day" id="w_icon">
+                <div class="descriptionDay"></div>
+                <div class="temp">Day - 25 ºC</div>
+                <div class="temp">Night - 18 ºC</div>
+            </div>
+        </div>
+    </section>
+    <script src="./script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>

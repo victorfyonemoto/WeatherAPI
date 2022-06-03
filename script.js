@@ -51,7 +51,7 @@ function getWeatherData () {
 }
 
 if('geolocation' in navigator){
-    getWeatherData();
+    getWeatherData()
 }else{
     alert('Unexpected Error');
 }
@@ -116,10 +116,10 @@ function showWeatherData (data){
 
 }
 
-/*function saveHistory(){
+/* function saveHistory(){
 
 }
 
 function clearHistory(){
 
-}*/
+} */

@@ -116,10 +116,10 @@ function showWeatherData (data){
 
 }
 
-function saveHistory(){
+/*function saveHistory(){
 
 }
 
 function clearHistory(){
 
-}
+}*/

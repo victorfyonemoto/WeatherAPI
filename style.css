@@ -143,7 +143,7 @@ body{
 
 #future_forecast .today .temp{
     font-size: 15px;
-    padding-top: 15px;
+    margin-top: 15px;
 }
 
 #description_current{
@@ -171,7 +171,6 @@ body{
     padding: 5px 15px;
     background: #3C3C44;
     border-radius: 50px;
-    text-align: center;
 }
 
 .weather_forecast .next_weather_forecast .temp{

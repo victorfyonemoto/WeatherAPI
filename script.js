@@ -50,11 +50,18 @@ function getWeatherData () {
 
 }
 
-if('geolocation' in navigator){
-    getWeatherData()
-}else{
-    alert('Unexpected Error');
-}
+window.addEventListener('load', () => { 
+    if('geolocation' in navigator){
+    getWeatherData();
+    }else{
+        alert('Unexpected Error');
+        function showError(error) {
+            alert(`Unexpected error - check console.log for details`);
+            console.log(`Error: ${error.message}`);
+        }
+        showError();
+    }
+})
 
 
 function showWeatherData (data){
@@ -92,13 +99,21 @@ function showWeatherData (data){
     data.daily.forEach((day, idx) => {
         if(idx == 0){
             currentTempEl.innerHTML = `
-            <img src="http://openweathermap.org/img/wn//${day.weather[0].icon}@4x.png" alt="${day.weather[0].description}" class="w_icon">
-            <div id="current">
-                <div class="day">${window.moment(day.dt*1000).format('dddd')}</div>
-                <div class="descriptionDay" id="description_current"> ${day.weather[0].description} </div>
-                <div class="temp">Day ${day.temp.day}ºC</div>
-                <div class="temp">Night ${day.temp.night}ºC</div>
-            </div>`
+                <img src="http://openweathermap.org/img/wn//${day.weather[0].icon}@4x.png" alt="${day.weather[0].description}" class="w_icon">
+                <div id="current">
+                    <div class="day">
+                        ${window.moment(day.dt*1000).format('dddd')}
+                    </div>
+                    <div class="descriptionDay" id="description_current">
+                        ${day.weather[0].description} 
+                    </div>
+                    <div class="temp">
+                        Day ${day.temp.day}ºC
+                    </div>
+                    <div class="temp">
+                        Night ${day.temp.night}ºC
+                    </div>
+                </div>`
         }else{
             futureForecast += `
             <div class="next_weather_forecast">
@@ -116,10 +131,14 @@ function showWeatherData (data){
 
 }
 
-/* function saveHistory(){
+/* 
+
+function saveHistory(){
 
 }
 
 function clearHistory(){
 
-} */
+} 
+
+*/
